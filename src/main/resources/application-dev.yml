@@ -1,0 +1,21 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    username: gaolang
+    password: Gaolang123
+    url: jdbc:mysql://rm-8vb0xkby0jkhrqx08vo.mysql.zhangbei.rds.aliyuncs.com:3306/sqt_smartcommunity
+    driver-class-name: com.mysql.jdbc.Driver
+
+mybatis:
+  mapper-locations:
+    - classpath:mapper/*.xml
+  type-aliases-package: com.chuweizi.visualization.entity
+
+#showSql
+logging:
+  level:
+    com:
+      example:
+        mapper : debug
