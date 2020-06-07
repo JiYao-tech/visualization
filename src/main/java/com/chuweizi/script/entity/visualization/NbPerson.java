@@ -1,4 +1,4 @@
-package com.chuweizi.visualization.entity;
+package com.chuweizi.script.entity.visualization;
 
 import lombok.Data;
 

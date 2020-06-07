@@ -1,4 +1,4 @@
-package com.chuweizi.visualization.config;
+package com.chuweizi.script.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,11 +20,9 @@ public class SwaggerConfig {
                 .apis(RequestHandlerSelectors.basePackage("com.chuweizi.visualization.controller"))
                 .paths(PathSelectors.any())
                 .build().apiInfo(new ApiInfoBuilder()
-                        .title("SpringBoot整合Swagger")
-                        .description("SpringBoot整合Swagger，详细信息......")
-                        .version("9.0")
-                        .license("The Apache License")
-                        .licenseUrl("http://www.baidu.com")
+                        .title("楚微子")
+                        .description("自定义需求")
+                        .version("1.0.0")
                         .build());
     }
 }

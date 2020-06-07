@@ -1,11 +1,9 @@
-package com.chuweizi.visualization.controller;
+package com.chuweizi.script.controller;
 
-import com.chuweizi.visualization.entity.NbPersonRoom;
-import com.chuweizi.visualization.service.PersonRoomService;
-import com.chuweizi.visualization.service.impl.PersonRoomServiceImpl;
+import com.chuweizi.script.entity.visualization.NbPersonRoom;
+import com.chuweizi.script.service.PersonRoomService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
-import io.swagger.annotations.ApiImplicitParams;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,14 +22,11 @@ public class PersonRoomController {
     @Autowired
     PersonRoomService personRoomService;
 
-    @GetMapping("/{id}")
+    @GetMapping("/{districtId}")
     @ResponseBody
-    @ApiOperation("根据小区ID查询可视化实有人口")
-    /*@ApiImplicitParams({
-            @ApiImplicitParam(name = "id", value = "小区ID"),
-           })*/
+    @ApiOperation("根据小区ID查询可视化所有实有人口")
     @ApiImplicitParam(name = "id", value = "小区ID")
-    public List<NbPersonRoom> findById(@PathVariable("id") Long id){
-        return personRoomService.findById(id);
+    public List<NbPersonRoom> findById(@PathVariable("districtId") Long districtId){
+        return personRoomService.findByDistrictId(districtId);
     }
 }
