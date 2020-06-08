@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.chuweizi</groupId>
-    <artifactId>visualization</artifactId>
+    <artifactId>Smart-Community</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>visualization</name>
     <description>Demo project for Spring Boot</description>

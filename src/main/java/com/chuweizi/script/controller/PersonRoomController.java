@@ -22,11 +22,16 @@ public class PersonRoomController {
     @Autowired
     PersonRoomService personRoomService;
 
-    @GetMapping("/{districtId}")
+    /**
+     * 根据小区ID获取可视化比物业多的人的身份证号
+     * @param districtId 小区ID
+     * @return
+     */
+    @GetMapping("/distric/{districtId}")
     @ResponseBody
-    @ApiOperation("根据小区ID查询可视化所有实有人口")
+    @ApiOperation("根据小区ID获取可视化比物业多的人的身份证号")
     @ApiImplicitParam(name = "id", value = "小区ID")
-    public List<NbPersonRoom> findById(@PathVariable("districtId") Long districtId){
+    public List<String> findByDistrictId(@PathVariable("districtId") Long districtId){
         return personRoomService.findByDistrictId(districtId);
     }
 }

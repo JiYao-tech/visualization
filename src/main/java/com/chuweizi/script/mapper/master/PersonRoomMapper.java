@@ -1,4 +1,4 @@
-package com.chuweizi.script.mapper.visualization;
+package com.chuweizi.script.mapper.master;
 
 import com.chuweizi.script.entity.visualization.NbPersonRoom;
 import org.apache.ibatis.annotations.*;
@@ -6,11 +6,19 @@ import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
+/**
+ * @author ZHANGFENG
+ */
 @Repository
 public interface PersonRoomMapper {
 
-    //    根据小区ID查询可视化所有实有人口
-    @Select("SELECT person.`name`, person.id_code, p_set.building_id, p_set.person_id, p_set.room_name\n" +
+    /**
+     * 根据小区ID查询实有人口
+     * @param districtId 小区ID
+     * @return
+     */
+    @Select("\t#查找可视化平台某个小区所有的人口的详细信息\n" +
+            "SELECT person.`name`, person.id_code, p_set.building_id, p_set.person_id,p_set.address, p_set.room_name\n" +
             "\t, p_set.address\n" +
             "FROM (\n" +
             "\tSELECT person_room.person_id, GROUP_CONCAT(room.building_id) AS building_id, GROUP_CONCAT(person_room.room_name) AS room_name\n" +

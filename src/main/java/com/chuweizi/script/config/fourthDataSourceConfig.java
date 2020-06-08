@@ -1,4 +1,5 @@
-//package com.chuweizi.script.config;
+//package com.chufourthzi.script.config;
+//
 //
 //import com.alibaba.druid.pool.DruidDataSource;
 //import org.apache.ibatis.session.SqlSessionFactory;
@@ -8,34 +9,33 @@
 //import org.springframework.beans.factory.annotation.Value;
 //import org.springframework.context.annotation.Bean;
 //import org.springframework.context.annotation.Configuration;
-//import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 //import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 //
 //import javax.sql.DataSource;
 //
 //@Configuration
 //// 扫描 Mapper 接口并容器管理
-//@MapperScan(basePackages = SecondDataSourceConfig.PACKAGE, sqlSessionFactoryRef = "secondSqlSessionFactory")
-//public class SecondDataSourceConfig {
+//@MapperScan(basePackages = fourthDataSourceConfig.PACKAGE, sqlSessionFactoryRef = "fourthSqlSessionFactory")
+//public class fourthDataSourceConfig {
 //
-//    // 精确到 second 目录，以便跟其他数据源隔离
-//    static final String PACKAGE = "com.chuweizi.script.mapper.second";
-//    //static final String MAPPER_LOCATION = "classpath:mapper/second/*.xml";
+//    // 精确到 cluster 目录，以便跟其他数据源隔离
+//    static final String PACKAGE = "com.chufourthzi.script.mapper.fourth";
+//    //static final String MAPPER_LOCATION = "classpath:mapper/fourth/*.xml";
 //
-//    @Value("${second.datasource.url}")
+//    @Value("${fourth.datasource.url}")
 //    private String url;
 //
-//    @Value("${second.datasource.username}")
+//    @Value("${fourth.datasource.username}")
 //    private String user;
 //
-//    @Value("${second.datasource.password}")
+//    @Value("${fourth.datasource.password}")
 //    private String password;
 //
-//    @Value("${second.datasource.driverClassName}")
+//    @Value("${fourth.datasource.driverClassName}")
 //    private String driverClass;
 //
-//    @Bean(name = "secondDataSource")
-//    public DataSource secondDataSource() {
+//    @Bean(name = "fourthDataSource")
+//    public DataSource fourthDataSource() {
 //        DruidDataSource dataSource = new DruidDataSource();
 //        dataSource.setDriverClassName(driverClass);
 //        dataSource.setUrl(url);
@@ -44,18 +44,18 @@
 //        return dataSource;
 //    }
 //
-//    @Bean(name = "secondTransactionManager")
-//    public DataSourceTransactionManager secondTransactionManager() {
-//        return new DataSourceTransactionManager(secondDataSource());
+//    @Bean(name = "fourthTransactionManager")
+//    public DataSourceTransactionManager fourthTransactionManager() {
+//        return new DataSourceTransactionManager(fourthDataSource());
 //    }
 //
-//    @Bean(name = "secondSqlSessionFactory")
-//    public SqlSessionFactory secondSqlSessionFactory(@Qualifier("secondDataSource") DataSource secondDataSource)
+//    @Bean(name = "fourthSqlSessionFactory")
+//    public SqlSessionFactory fourthSqlSessionFactory(@Qualifier("fourthDataSource") DataSource fourthDataSource)
 //            throws Exception {
 //        final SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
-//        sessionFactory.setDataSource(secondDataSource);
+//        sessionFactory.setDataSource(fourthDataSource);
 //        /*sessionFactory.setMapperLocations(new PathMatchingResourcePatternResolver()
-//                .getResources(SecondDataSourceConfig.MAPPER_LOCATION));*/
+//                .getResources(MasterDataSourceConfig.MAPPER_LOCATION));*/
 //        return sessionFactory.getObject();
 //    }
 //}

@@ -9,33 +9,34 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 import javax.sql.DataSource;
 
 @Configuration
 // 扫描 Mapper 接口并容器管理
-@MapperScan(basePackages = WeiDataSourceConfig.PACKAGE, sqlSessionFactoryRef = "weiSqlSessionFactory")
-public class WeiDataSourceConfig {
+@MapperScan(basePackages = ThirdDataSourceConfig.PACKAGE, sqlSessionFactoryRef = "thirdSqlSessionFactory")
+public class ThirdDataSourceConfig {
 
     // 精确到 cluster 目录，以便跟其他数据源隔离
-    static final String PACKAGE = "com.chuweizi.script.mapper.propertyTest";
-    //static final String MAPPER_LOCATION = "classpath:mapper/Property/*.xml";
+    static final String PACKAGE = "com.chuweizi.script.mapper.third";
+    //static final String MAPPER_LOCATION = "classpath:mapper/third/*.xml";
 
-    @Value("${wei.datasource.url}")
+    @Value("${third.datasource.url}")
     private String url;
 
-    @Value("${wei.datasource.username}")
+    @Value("${third.datasource.username}")
     private String user;
 
-    @Value("${wei.datasource.password}")
+    @Value("${third.datasource.password}")
     private String password;
 
-    @Value("${wei.datasource.driverClassName}")
+    @Value("${third.datasource.driverClassName}")
     private String driverClass;
 
-    @Bean(name = "weiDataSource")
-    public DataSource weiDataSource() {
+    @Bean(name = "thirdDataSource")
+    public DataSource thirdDataSource() {
         DruidDataSource dataSource = new DruidDataSource();
         dataSource.setDriverClassName(driverClass);
         dataSource.setUrl(url);
@@ -44,18 +45,19 @@ public class WeiDataSourceConfig {
         return dataSource;
     }
 
-    @Bean(name = "weiTransactionManager")
-    public DataSourceTransactionManager weiTransactionManager() {
-        return new DataSourceTransactionManager(weiDataSource());
+    @Bean(name = "thirdTransactionManager")
+    public DataSourceTransactionManager thirdTransactionManager() {
+        return new DataSourceTransactionManager(thirdDataSource());
     }
 
-    @Bean(name = "weiSqlSessionFactory")
-    public SqlSessionFactory weiSqlSessionFactory(@Qualifier("weiDataSource") DataSource weiDataSource)
+    @Bean(name = "thirdSqlSessionFactory")
+    public SqlSessionFactory thirdSqlSessionFactory(@Qualifier("thirdDataSource") DataSource thirdDataSource)
             throws Exception {
         final SqlSessionFactoryBean sessionFactory = new SqlSessionFactoryBean();
-        sessionFactory.setDataSource(weiDataSource);
+        sessionFactory.setDataSource(thirdDataSource);
         /*sessionFactory.setMapperLocations(new PathMatchingResourcePatternResolver()
                 .getResources(MasterDataSourceConfig.MAPPER_LOCATION));*/
+
         return sessionFactory.getObject();
     }
 }
