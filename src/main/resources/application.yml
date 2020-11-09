@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 8081
 
 mybatis:
   mapper-locations:
@@ -11,3 +11,8 @@ logging:
     com:
       chuweizi:
         script: DEBUG
+
+
+security:
+  basic:
+    enabled=false:
