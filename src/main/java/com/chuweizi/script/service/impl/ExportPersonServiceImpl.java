@@ -10,7 +10,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 
+/**
+ * @author 36536
+ */
 @Service
 public class ExportPersonServiceImpl implements ExportPersonService {
 
@@ -41,22 +46,24 @@ public class ExportPersonServiceImpl implements ExportPersonService {
             //设置小区名称
             person.setCustomer(custome);
             //户主关系
-            if(person.getHolderRelation().equals("1")){
+            if("1".equals(person.getHolderRelation())){
                 person.setHolderRelation("户主");
-            }else if (person.getHolderRelation().equals("2")){
+            }else if ("2".equals(person.getHolderRelation())){
                 person.setHolderRelation("家人");
-            }else if (person.getHolderRelation().equals("3")){
+            }else if ("3".equals(person.getHolderRelation())){
                 person.setHolderRelation("租户");
-            }else if (person.getHolderRelation().equals("4")){
+            }else if ("4".equals(person.getHolderRelation())){
                 person.setHolderRelation("代理人");
+            }else if ("5".equals(person.getHolderRelation())){
+                person.setHolderRelation("租户户主");
             }else {
                 person.setHolderRelation("其他");
             }
 
             //户口类型
-            if(person.getResidenceType().equals("1")){
+            if("1".equals(person.getResidenceType())){
                 person.setResidenceType("常住人口");
-            }else if(person.getResidenceType().equals("2")) {
+            }else if("2".equals(person.getResidenceType())) {
                 person.setResidenceType("流动人口");
             }
 
@@ -79,7 +86,6 @@ public class ExportPersonServiceImpl implements ExportPersonService {
                 }
             }
         }
-        System.out.println(personList);
         return personList;
     }
 
@@ -88,14 +94,16 @@ public class ExportPersonServiceImpl implements ExportPersonService {
 
         ArrayList<Person> personArrayList = findByCustomerId(customerId);
 
-        //创建文件保存的位置,以及文件名
-        String fileName="C:\\Users\\36536\\Desktop\\Person.xlsx";
+        //查询小区名称
+        String custome = customerMapper.findByCustomeId(customerId);
 
-        /**
-         * 构建要写入的数据
-         * User类是一个自定义的特殊类,专门用来构建向Excel中写数据的类型类
-         * @ExcelProperty是easyexcel提供的注解,用来定义表格的头部
-         */
+        //创建文件保存的位置,以及文件名
+        String fileName="C:\\Users\\36536\\Desktop\\"+custome+".xlsx";
+
+        // 根据用户传入字段 假设我们要忽略 date
+        Set<String> excludeColumnFiledNames = new HashSet<String>();
+        excludeColumnFiledNames.add("personId");
+
         //将数据写到Excel的第一个sheet标签中,并且给sheet标签起名字
         EasyExcel.write(fileName,Person.class).sheet("用户信息").doWrite(personArrayList);
         //文件流会自动关闭

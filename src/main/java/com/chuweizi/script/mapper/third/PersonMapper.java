@@ -17,7 +17,7 @@ public interface PersonMapper {
      * @param customerId 小区id
      * @return 人员列表
      */
-    @Select("SELECT CARD_ID,PERSON_ID,NAME,CONTACT_PHONE,HOLDER_RELATION,RESIDENCE_TYPE,HOUSE_ID FROM t_grid_person WHERE CUSTOMER_ID = #{customerId}")
+    @Select("SELECT CARD_ID,PERSON_ID,NAME,CONTACT_PHONE,HOLDER_RELATION,RESIDENCE_TYPE,HOUSE_ID FROM t_grid_person WHERE CUSTOMER_ID = #{customerId} and STATUS = 1")
     @Results(id = "personList",value = {
             @Result(column = "PERSON_ID",property = "personId"),
             @Result(column = "NAME",property = "name"),

@@ -29,14 +29,14 @@ public class SmartCommunityApplicationTests {
     @Test
     public void findPersonList(){
         //exportPersonService.writeExcel(15);
-        exportPersonService.writeExcel(15);
+        exportPersonService.writeExcel(63);
     }
 
     @Test
     public void Test01(){
-        ArrayList<String> arrayList = new ArrayList<>();
-        arrayList.add("1");
-        System.out.println(arrayList.size());
+        List<Person> personList = exportPersonService.findByCustomerId(63);
+        System.out.println(personList.size());
+        System.out.println(personList);
     }
 
 }
