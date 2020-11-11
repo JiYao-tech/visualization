@@ -6,6 +6,10 @@ import lombok.Data;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 住户信息
+ * @author ZHANGFENG
+ */
 @Data
 public class Person {
     private int  personId;
