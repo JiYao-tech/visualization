@@ -68,13 +68,12 @@ public class ExportPersonServiceImpl implements ExportPersonService {
             }
 
             //查询人员卡号
-            int personId = person.getPersonId();
-            ArrayList<String> cardNoList = cardMapper.findByPersonId(personId);
+            ArrayList<String> cardNoList = cardMapper.findByPersonId(person.getPersonId(),person.getName());
             String card = StringUtils.join(cardNoList, "、");
             person.setCardNo(card);
 
             //查询车牌号
-            ArrayList<String> carList = carMapper.findByPersonIdAndCustome(personId, customerId);
+            ArrayList<String> carList = carMapper.findByPersonIdAndCustome(person.getPersonId(), customerId);
             String car = StringUtils.join(carList, "、");
             person.setCar(car);
 
@@ -98,7 +97,7 @@ public class ExportPersonServiceImpl implements ExportPersonService {
         String custome = customerMapper.findByCustomeId(customerId);
 
         //创建文件保存的位置,以及文件名
-        String fileName="C:\\Users\\36536\\Desktop\\"+custome+".xlsx";
+        String fileName="C:\\Users\\36536\\Desktop\\江夏导入居民信息\\"+custome+".xlsx";
 
         // 根据用户传入字段 假设我们要忽略 date
         Set<String> excludeColumnFiledNames = new HashSet<String>();

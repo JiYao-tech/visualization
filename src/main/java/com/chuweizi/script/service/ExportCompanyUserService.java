@@ -18,4 +18,10 @@ public interface ExportCompanyUserService {
      * @return 小区物业人员信息
      */
     ArrayList<CompanyUser> findByCustomerId(@Param("customerId")int customerId);
+
+    /**
+     * 导出物业人员信息
+     * @param customerId 小区Id
+     */
+    void writeExcel(@Param("customerId")int customerId);
 }

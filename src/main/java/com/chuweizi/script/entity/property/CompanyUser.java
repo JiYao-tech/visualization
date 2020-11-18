@@ -24,4 +24,6 @@ public class CompanyUser {
     private String departmentName;
     @ExcelProperty("职位名称")
     private String jobTitle;
+    @ExcelProperty("卡号")
+    private String card;
 }
