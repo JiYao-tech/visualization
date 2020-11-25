@@ -37,34 +37,27 @@ public class SmartCommunityApplicationTests {
     private CardMapper cardMapper;
 
     @Test
-    public void findPersonList(){
+    public void testWriteExcel(){
         //exportPersonService.writeExcel(15);
-        exportPersonService.writeExcel(47);
+        exportPersonService.writeExcel(72);
     }
 
     @Test
-    public void Test01(){
-        List<Person> personList = exportPersonService.findByCustomerId(47);
+    public void testFindByCustomerId(){
+        List<Person> personList = exportPersonService.findByCustomerId(72);
         System.out.println(personList.size());
         System.out.println(personList);
     }
 
     @Test
-    public void Test02(){
-        exportCompanyUserService.writeExcel(47);
+    public void writeExcel(){
+        exportCompanyUserService.writeExcel(76);
     }
 
     @Test
-    public void Test03(){
-        ArrayList<CompanyUser> companyUserArrayList = exportCompanyUserService.findByCustomerId(65);
+    public void findByCustomerId(){
+        ArrayList<CompanyUser> companyUserArrayList = exportCompanyUserService.findByCustomerId(72);
         System.out.println(companyUserArrayList.size());
         System.out.println(companyUserArrayList);
     }
-
-    @Test
-    public void test04(){
-        HashSet<String> list = cardMapper.findByUser("15629", "阙建军");
-        System.out.println(list);
-    }
-
 }

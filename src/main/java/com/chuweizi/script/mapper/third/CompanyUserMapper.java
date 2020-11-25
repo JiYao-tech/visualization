@@ -21,12 +21,13 @@ public interface CompanyUserMapper {
      * @param customerId 小区id
      * @return 小区内所有物业员工信息
      */
-    @Select("SELECT COMPANY_ID,USER_ID,NAME,PHONE,ORG_NAME,POSITION_NAME FROM t_company_org_user WHERE CUSTOMER_ID = #{customerId}")
+    @Select("SELECT COMPANY_ID,FACE_URL,USER_ID,NAME,PHONE,ORG_NAME,POSITION_NAME FROM t_company_org_user WHERE CUSTOMER_ID = #{customerId} and STATUS = 1")
     @Results(id = "companyUserList",value = {
             @Result(column = "COMPANY_ID",property = "companyName"),
             @Result(column = "USER_ID",property = "cardId"),
             @Result(column = "NAME",property = "name"),
             @Result(column = "PHONE",property = "phone"),
+            @Result(column = "FACE_URL",property = "faceUrl"),
             @Result(column = "ORG_NAME",property = "departmentName"),
             @Result(column = "POSITION_NAME",property = "jobTitle"),
     })

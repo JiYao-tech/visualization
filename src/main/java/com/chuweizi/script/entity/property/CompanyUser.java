@@ -20,6 +20,8 @@ public class CompanyUser {
     private String phone;
     @ExcelProperty("身份证号")
     private String cardId;
+    @ExcelProperty("人脸图片地址")
+    private String faceUrl;
     @ExcelProperty("部门名称")
     private String departmentName;
     @ExcelProperty("职位名称")

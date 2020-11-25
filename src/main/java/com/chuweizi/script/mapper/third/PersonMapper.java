@@ -17,12 +17,13 @@ public interface PersonMapper {
      * @param customerId 小区id
      * @return 人员列表
      */
-    @Select("SELECT CARD_ID,PERSON_ID,NAME,CONTACT_PHONE,HOLDER_RELATION,RESIDENCE_TYPE,HOUSE_ID FROM t_grid_person WHERE CUSTOMER_ID = #{customerId} and STATUS = 1")
+    @Select("SELECT CARD_ID,PHOTO_URL,PERSON_ID,NAME,CONTACT_PHONE,HOLDER_RELATION,RESIDENCE_TYPE,HOUSE_ID FROM t_grid_person WHERE CUSTOMER_ID = #{customerId} and STATUS = 1")
     @Results(id = "personList",value = {
             @Result(column = "PERSON_ID",property = "personId"),
             @Result(column = "NAME",property = "name"),
             @Result(column = "CONTACT_PHONE",property = "phone"),
             @Result(column = "CARD_ID",property = "cardId"),
+            @Result(column = "PHOTO_URL",property = "photoUrl"),
             @Result(column = "HOLDER_RELATION",property = "holderRelation"),
             @Result(column = "RESIDENCE_TYPE",property = "residenceType"),
             @Result(column = "HOUSE_ID",property = "house"),

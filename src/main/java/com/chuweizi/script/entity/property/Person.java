@@ -21,6 +21,8 @@ public class Person {
     private String phone;
     @ExcelProperty("身份证号")
     private String cardId;
+    @ExcelProperty("身份证照片地址")
+    private String photoUrl;
     @ExcelProperty("人员类型")
     private String holderRelation;
     @ExcelProperty("户籍类型")
