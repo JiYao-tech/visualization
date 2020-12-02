@@ -9,17 +9,20 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 import javax.sql.DataSource;
 
+/**
+ * 扫描 Mapper 接口并容器管理
+ */
 @Configuration
-// 扫描 Mapper 接口并容器管理
 @MapperScan(basePackages = ThirdDataSourceConfig.PACKAGE, sqlSessionFactoryRef = "thirdSqlSessionFactory")
 public class ThirdDataSourceConfig {
 
-    // 精确到 cluster 目录，以便跟其他数据源隔离
+    /**
+     * 精确到 cluster 目录，以便跟其他数据源隔离
+     */
     static final String PACKAGE = "com.chuweizi.script.mapper.third";
     //static final String MAPPER_LOCATION = "classpath:mapper/third/*.xml";
 

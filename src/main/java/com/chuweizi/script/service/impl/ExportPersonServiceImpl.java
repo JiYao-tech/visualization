@@ -104,7 +104,7 @@ public class ExportPersonServiceImpl implements ExportPersonService {
         excludeColumnFiledNames.add("personId");
 
         //将数据写到Excel的第一个sheet标签中,并且给sheet标签起名字
-        EasyExcel.write(fileName,Person.class).sheet("用户信息").doWrite(personArrayList);
+        EasyExcel.write(fileName,Person.class).excludeColumnFiledNames(excludeColumnFiledNames).sheet("用户信息").doWrite(personArrayList);
         //文件流会自动关闭
     }
 }

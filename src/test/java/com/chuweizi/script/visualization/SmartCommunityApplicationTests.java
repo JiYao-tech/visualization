@@ -10,6 +10,7 @@ import com.chuweizi.script.mapper.third.HouseMapper;
 import com.chuweizi.script.mapper.third.PersonMapper;
 import com.chuweizi.script.service.ExportCompanyUserService;
 import com.chuweizi.script.service.ExportPersonService;
+import com.chuweizi.script.service.UpdatePhotoNameService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,13 +29,11 @@ public class SmartCommunityApplicationTests {
     private ExportPersonService exportPersonService;
 
     @Autowired
-    private HouseMapper houseMapper;
-
-    @Autowired
     private ExportCompanyUserService exportCompanyUserService;
 
     @Autowired
-    private CardMapper cardMapper;
+    private UpdatePhotoNameService updatePhotoNameService;
+
 
     @Test
     public void testWriteExcel(){
@@ -59,5 +58,10 @@ public class SmartCommunityApplicationTests {
         ArrayList<CompanyUser> companyUserArrayList = exportCompanyUserService.findByCustomerId(72);
         System.out.println(companyUserArrayList.size());
         System.out.println(companyUserArrayList);
+    }
+
+    @Test
+    public void readExcelUpdatePhotoName(){
+        updatePhotoNameService.readExcelUpdatePhotoName();
     }
 }
