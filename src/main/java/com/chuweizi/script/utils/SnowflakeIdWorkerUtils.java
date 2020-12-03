@@ -1,6 +1,6 @@
-package com.chuweizi.script.visualization;
+package com.chuweizi.script.utils;
 
-public class SnowflakeIdWorker {
+public class SnowflakeIdWorkerUtils {
     // ==============================Fields===========================================
     /** 开始时间截 (2015-01-01) */
     private final long twepoch = 1420041600000L;
@@ -50,7 +50,7 @@ public class SnowflakeIdWorker {
      * @param workerId 工作ID (0~31)
      * @param datacenterId 数据中心ID (0~31)
      */
-    public SnowflakeIdWorker(long workerId, long datacenterId) {
+    public SnowflakeIdWorkerUtils(long workerId, long datacenterId) {
         if (workerId > maxWorkerId || workerId < 0) {
             throw new IllegalArgumentException(String.format("worker Id can't be greater than %d or less than 0", maxWorkerId));
         }
@@ -123,7 +123,7 @@ public class SnowflakeIdWorker {
     //==============================Test=============================================
     /** 测试 */
     public static void main(String[] args) {
-        SnowflakeIdWorker idWorker = new SnowflakeIdWorker(0, 0);
+        SnowflakeIdWorkerUtils idWorker = new SnowflakeIdWorkerUtils(0, 0);
 
         for (int i = 0; i < 100; i++) {
             long id = idWorker.nextId();

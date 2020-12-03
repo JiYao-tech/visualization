@@ -1,4 +1,4 @@
-package com.chuweizi.script.visualization;
+package com.chuweizi.script.utils;
 
 import org.springframework.web.client.RestTemplate;
 import sun.misc.BASE64Encoder;
@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Objects;
 
-public class Base64 {
+public class Base64Utils {
     public static void main(String[] args) {
         //下面是本地图片转换Base64的方法
         String imagePath = "C:\\Users\\36536\\Desktop\\FLAMING MOUNTAIN.JPG";

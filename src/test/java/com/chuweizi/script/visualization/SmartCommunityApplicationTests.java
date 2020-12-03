@@ -1,16 +1,11 @@
 package com.chuweizi.script.visualization;
 
-import com.alibaba.excel.EasyExcel;
 import com.chuweizi.script.SmartCommunityApplication;
 import com.chuweizi.script.entity.property.CompanyUser;
-import com.chuweizi.script.entity.property.House;
 import com.chuweizi.script.entity.property.Person;
-import com.chuweizi.script.mapper.third.CardMapper;
-import com.chuweizi.script.mapper.third.HouseMapper;
-import com.chuweizi.script.mapper.third.PersonMapper;
 import com.chuweizi.script.service.ExportCompanyUserService;
 import com.chuweizi.script.service.ExportPersonService;
-import com.chuweizi.script.service.UpdatePhotoNameService;
+import com.chuweizi.script.service.ReadExcelService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +13,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 
 @RunWith(SpringRunner.class)
@@ -32,15 +26,21 @@ public class SmartCommunityApplicationTests {
     private ExportCompanyUserService exportCompanyUserService;
 
     @Autowired
-    private UpdatePhotoNameService updatePhotoNameService;
+    private ReadExcelService readExcelService;
 
 
+    /**
+     * 输出业主信息
+     */
     @Test
-    public void testWriteExcel(){
+    public void testWritePersonExcel(){
         //exportPersonService.writeExcel(15);
         exportPersonService.writeExcel(72);
     }
 
+    /**
+     * 查找业主信息
+     */
     @Test
     public void testFindByCustomerId(){
         List<Person> personList = exportPersonService.findByCustomerId(72);
@@ -48,11 +48,17 @@ public class SmartCommunityApplicationTests {
         System.out.println(personList);
     }
 
+    /**
+     * 输出物业信息
+     */
     @Test
-    public void writeExcel(){
+    public void testWriteCompanyUserExcel(){
         exportCompanyUserService.writeExcel(76);
     }
 
+    /**
+     * 查找物业信息
+     */
     @Test
     public void findByCustomerId(){
         ArrayList<CompanyUser> companyUserArrayList = exportCompanyUserService.findByCustomerId(72);
@@ -60,8 +66,19 @@ public class SmartCommunityApplicationTests {
         System.out.println(companyUserArrayList);
     }
 
+    /**
+     * 读取excel，批量修改照片名称
+     */
     @Test
     public void readExcelUpdatePhotoName(){
-        updatePhotoNameService.readExcelUpdatePhotoName();
+        readExcelService.readExcelUpdatePhotoName();
+    }
+
+    /**
+     * 效验身份证合法性
+     */
+    @Test
+    public void testVerifyIdCard(){
+        readExcelService.verifyIdCard();
     }
 }
