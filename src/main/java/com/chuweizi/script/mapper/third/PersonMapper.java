@@ -1,6 +1,5 @@
 package com.chuweizi.script.mapper.third;
 
-import com.chuweizi.script.entity.property.House;
 import com.chuweizi.script.entity.property.Person;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Result;
@@ -9,7 +8,6 @@ import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
-import java.util.List;
 @Repository
 public interface PersonMapper {
     /**

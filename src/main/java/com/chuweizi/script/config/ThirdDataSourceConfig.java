@@ -15,6 +15,7 @@ import javax.sql.DataSource;
 
 /**
  * 扫描 Mapper 接口并容器管理
+ * @author 36536
  */
 @Configuration
 @MapperScan(basePackages = ThirdDataSourceConfig.PACKAGE, sqlSessionFactoryRef = "thirdSqlSessionFactory")

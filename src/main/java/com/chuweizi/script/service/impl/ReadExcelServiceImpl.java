@@ -22,9 +22,7 @@ public class ReadExcelServiceImpl implements ReadExcelService {
 
 
     @Override
-    public void updatePhotoName() {
-
-        String path = "C:\\Users\\36536\\Desktop\\鸿发照片";
+    public void updatePhotoName(String path) {
 
         File file = new File(path);
         File[] list = file.listFiles();
@@ -53,17 +51,14 @@ public class ReadExcelServiceImpl implements ReadExcelService {
     }
 
     @Override
-    public void readExcelUpdatePhotoName() {
-
-        String path = "C:\\Users\\36536\\Desktop\\新建 Microsoft Excel 工作表.xlsx";
+    public void readExcelUpdatePhotoName(String path) {
         // 这里默认读取第一个sheet
         EasyExcel.read(path, Person.class, new UpdatePhotoListener()).sheet().doRead();
 
     }
 
     @Override
-    public void verifyIdCard() {
-        String path = "C:\\Users\\36536\\Desktop\\新建 Microsoft Excel 工作表.xlsx";
+    public void verifyIdCard(String path) {
         // 这里默认读取第一个sheet
         EasyExcel.read(path, Person.class, new VerifyIdCardListener()).sheet().doRead();
     }

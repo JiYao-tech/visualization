@@ -35,7 +35,7 @@ public class SmartCommunityApplicationTests {
     @Test
     public void testWritePersonExcel(){
         //exportPersonService.writeExcel(15);
-        exportPersonService.writeExcel(72);
+        exportPersonService.writeExcel(44);
     }
 
     /**
@@ -43,7 +43,7 @@ public class SmartCommunityApplicationTests {
      */
     @Test
     public void testFindByCustomerId(){
-        List<Person> personList = exportPersonService.findByCustomerId(72);
+        List<Person> personList = exportPersonService.findByCustomerId(44);
         System.out.println(personList.size());
         System.out.println(personList);
     }
@@ -53,7 +53,7 @@ public class SmartCommunityApplicationTests {
      */
     @Test
     public void testWriteCompanyUserExcel(){
-        exportCompanyUserService.writeExcel(76);
+        exportCompanyUserService.writeExcel(70);
     }
 
     /**
@@ -61,7 +61,7 @@ public class SmartCommunityApplicationTests {
      */
     @Test
     public void findByCustomerId(){
-        ArrayList<CompanyUser> companyUserArrayList = exportCompanyUserService.findByCustomerId(72);
+        ArrayList<CompanyUser> companyUserArrayList = exportCompanyUserService.findByCustomerId(44);
         System.out.println(companyUserArrayList.size());
         System.out.println(companyUserArrayList);
     }
@@ -71,7 +71,8 @@ public class SmartCommunityApplicationTests {
      */
     @Test
     public void readExcelUpdatePhotoName(){
-        readExcelService.readExcelUpdatePhotoName();
+        String path = "";
+        readExcelService.readExcelUpdatePhotoName(path);
     }
 
     /**
@@ -79,6 +80,7 @@ public class SmartCommunityApplicationTests {
      */
     @Test
     public void testVerifyIdCard(){
-        readExcelService.verifyIdCard();
+        String path = "";
+        readExcelService.verifyIdCard(path);
     }
 }

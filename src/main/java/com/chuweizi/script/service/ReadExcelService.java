@@ -1,6 +1,5 @@
 package com.chuweizi.script.service;
 
-import java.util.List;
 
 /**
  * 修改照片名称
@@ -11,15 +10,16 @@ public interface ReadExcelService {
     /**
      * 根据特定文件格式修改照片名称
      */
-    void updatePhotoName();
+    void updatePhotoName(String path);
 
     /**
      *读取excel文件，修改照片名称
+     *path excel文件路径
      */
-    void readExcelUpdatePhotoName();
+    void readExcelUpdatePhotoName(String path);
 
     /**
      * 效验身份证号
      */
-    void verifyIdCard();
+    void verifyIdCard(String path);
 }

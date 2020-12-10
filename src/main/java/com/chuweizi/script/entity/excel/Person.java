@@ -3,6 +3,9 @@ package com.chuweizi.script.entity.excel;
 import com.alibaba.excel.annotation.ExcelProperty;
 import lombok.Data;
 
+/**
+ * @author 36536
+ */
 @Data
 public class Person {
     @ExcelProperty("*姓名")

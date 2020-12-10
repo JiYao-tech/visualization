@@ -1,6 +1,5 @@
 package com.chuweizi.script.utils;
 
-import org.springframework.web.client.RestTemplate;
 import sun.misc.BASE64Encoder;
 
 import java.io.FileInputStream;
