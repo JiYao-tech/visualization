@@ -53,7 +53,7 @@ public class SmartCommunityApplicationTests {
      */
     @Test
     public void testWriteCompanyUserExcel(){
-        exportCompanyUserService.writeExcel(70);
+        exportCompanyUserService.writeExcel(41);
     }
 
     /**

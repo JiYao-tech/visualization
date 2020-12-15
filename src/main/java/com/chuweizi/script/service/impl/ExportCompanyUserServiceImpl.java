@@ -68,7 +68,7 @@ public class ExportCompanyUserServiceImpl implements ExportCompanyUserService {
         String custome = customerMapper.findByCustomeId(customerId);
 
         //创建文件保存的位置,以及文件名
-        String fileName="C:\\Users\\36536\\Desktop\\江夏导入物业\\"+custome+".xlsx";
+        String fileName="C:\\Users\\36536\\Desktop\\江夏导入物业\\"+custome+"物业.xlsx";
 
         // 根据用户传入字段 假设我们要忽略 date
         Set<String> excludeColumnFiledNames = new HashSet<String>();
